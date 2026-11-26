@@ -1,0 +1,22 @@
+[package]
+name = "s3-core"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "mod_s3 protocol-agnostic core: path guard, key templates, ffmpeg transcode, job queue and S3 upload (no FreeSWITCH dependency)"
+
+[lib]
+path = "src/lib.rs"
+
+[dependencies]
+aws-credential-types = "1"
+aws-sdk-s3 = { version = "1", default-features = false, features = ["sigv4a", "http-1x", "rustls", "rt-tokio"] }
+futures-util = "0.3"
+hex = "0.4"
+libc = "0.2"
+sha2 = "0.10"
+time = { version = "0.3", features = ["formatting", "macros"] }
+tokio = { version = "1", features = ["rt", "time"] }
+
+[lints]
+workspace = true
